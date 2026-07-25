@@ -1,0 +1,41 @@
+# Archivo de configuracion para el flujo de integracion continua de GitHub Actions
+name: Construir y Publicar Extension SFD
+
+# Se ejecutara SOLO cuando enviemos una etiqueta (tag) que empiece por "v" (ej. v0.0.1)
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  empaquetar_y_publicar:
+    runs-on: ubuntu-latest
+    
+    # Otorgamos permisos de escritura al bot de GitHub para que pueda crear la Release
+    permissions:
+      contents: write
+
+    steps:
+      - name: Descargar codigo fuente
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias locales
+        run: npm install
+
+      - name: Instalar empaquetador VSCE
+        run: npm install -g @vscode/vsce
+
+      - name: Generar binario VSIX
+        run: vsce package --no-git-tag-version
+        
+      # Paso final que crea la Release en GitHub y adjunta el instalador automaticamente
+      - name: Publicar Release Oficial
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./*.vsix
+          generate_release_notes: true

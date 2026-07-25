@@ -1,0 +1,9 @@
+{
+  "name": "SFD Script",
+  "scopeName": "source.sfd",
+  "patterns": [
+    {
+      "include": "source.cs"
+    }
+  ]
+}

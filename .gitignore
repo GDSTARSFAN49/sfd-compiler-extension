@@ -1,0 +1,14 @@
+# Carpeta con el codigo JavaScript compilado a partir de TypeScript
+out
+
+# Carpeta opcional de distribucion si decides usar bundlers como webpack
+dist
+
+# Directorio que almacena las librerias y dependencias externas de NodeJS
+node_modules
+
+# Carpeta temporal para las pruebas automatizadas de la extension
+.vscode-test/
+
+# Archivos instaladores finales VSIX (se gestionan en Releases, no en codigo)
+*.vsix

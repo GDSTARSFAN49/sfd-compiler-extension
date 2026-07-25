@@ -1,0 +1,63 @@
+{
+  "name": "sfd-compiler",
+  "displayName": "SFD Compiler",
+  "description": "Linter para crear Scripts para Superfighters Deluxe",
+  "version": "0.0.1",
+  "publisher": "GDSTARSFAN49",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/GDSTARSFAN49/sfd-compiler-extension"
+},
+  "icon": "images/extension-icon.png",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "sfd",
+        "aliases": ["SFD Script", "sfd"],
+        "extensions": [".sfde"],
+        "icon": {
+          "light": "./images/icon.png",
+          "dark": "./images/icon.png"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sfd",
+        "scopeName": "source.sfd",
+        "path": "./syntaxes/sfd.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
