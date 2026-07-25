@@ -97,7 +97,7 @@ async function validarCodigoDocumento(documentoActual: vscode.TextDocument): Pro
             for (const errorServidor of resultadoValidacion.errors) {
                 
                 // Ajustamos el índice de la línea para alinearlo con el sistema en base cero del editor
-                const indiceLineaCalculado = Math.max(0, errorServidor.line - 1);
+                const indiceLineaCalculado = errorServidor.line;
                 
                 // Evitamos procesar errores visuales que apunten a líneas inexistentes en el archivo
                 if (indiceLineaCalculado >= documentoActual.lineCount) {
