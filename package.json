@@ -2,7 +2,7 @@
   "name": "sfd-compiler",
   "displayName": "SFD Compiler",
   "description": "Linter para crear Scripts para Superfighters Deluxe",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "publisher": "GDSTARSFAN49",
   "repository": {
   "type": "git",
