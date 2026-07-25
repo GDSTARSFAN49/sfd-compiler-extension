@@ -54,7 +54,7 @@ async function validarCodigoDocumento(documentoActual: vscode.TextDocument): Pro
     try {
         
         // Realizamos la llamada a la ruta de validación ubicada en nuestro servidor de Render
-        const respuestaServidorWeb = await fetch('https://sfd-compiler.onrender.com/validate', {
+        const respuestaServidorWeb = await fetch('https://sfd-compiler-voc6.onrender.com/validate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ Code: contenidoTextoOriginal }),
